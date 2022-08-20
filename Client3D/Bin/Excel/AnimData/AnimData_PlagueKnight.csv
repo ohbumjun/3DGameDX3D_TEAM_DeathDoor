@@ -1,0 +1,8 @@
+AnimData_PlagueKnight,,
+,FrameStart,FrameEnd
+Idle,0,61
+StartShoot,62,94
+ChargeShoot,95,136
+Shoot,137,169
+MeleeAttack,170,240
+Run,241,283

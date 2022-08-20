@@ -1,0 +1,17 @@
+AnimData_CrowBoss,,
+,FrameStart,FrameEnd
+Idle,0,60
+CutScene,62,162
+Spitting,164,279
+Sliding,327,332
+SlidingReady,333,363
+GuidedBullet,365,424
+BatBullet,426,513
+Death,515,551
+LeftSpin,580,607
+Jump,644,665
+Stomp,667,694
+Walk,304,323
+RightSpin,612,642
+StandingDeath,553,578
+Run,304,323

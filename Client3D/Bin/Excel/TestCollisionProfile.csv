@@ -1,0 +1,12 @@
+TestCollisionProfile.csv
+,Channel,Object,Player,Monster,PlayerAttack,MonsterAttack,MapObject,Custom2,Custom3,Custom4,Custom5,Custom6,Custom7,Custom8,Custom9,Custom10,Custom11,Custom12,Custom13,Custom14,Custom15,Custom16
+Object,Object,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision
+Bomb(Custom16),Custom16,Ignore,Collision,Collision,Ignore,Ignore,Collision,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore
+Player,Player,Collision,Ignore,CollisionRigid,Ignore,Collision,CollisionRigid,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Ignore,Collision
+Monster,Monster,Collision,CollisionRigid,CollisionRigid,Collision,Ignore,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision
+MonsterAttack,MonsterAttack,Collision,Collision,Ignore,Ignore,Ignore,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Ignore
+PlayerAttack,PlayerAttack,Collision,Ignore,Collision,Ignore,Ignore,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision,Collision
+EnterTrigger,MapObject,Ignore,Collision,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore
+Wall,Object,Ignore,CollisionRigid,CollisionRigid,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore
+MapObject,MapObject,Ignore,CollisionRigid,CollisionRigid,Collision,Collision,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Collision
+PlayerBomb,Custom15,Ignore,Ignore,Collision,Ignore,Ignore,Collision,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore,Ignore

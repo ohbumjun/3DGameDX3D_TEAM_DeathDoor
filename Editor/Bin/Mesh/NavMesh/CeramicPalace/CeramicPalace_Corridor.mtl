@@ -1,0 +1,96 @@
+# Blender MTL File: 'None'
+# Material Count: 8
+
+newmtl MT_Corridor_mat0
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\dhsys\\Desktop\\DX113DLOL\\Editor\\Bin\\Mesh\\DeathDoor\\Map\\CorridorEx.fbm\\GrandmaPots.png
+map_d C:\\Users\\dhsys\\Desktop\\DX113DLOL\\Editor\\Bin\\Mesh\\DeathDoor\\Map\\CorridorEx.fbm\\GrandmaPots.png
+
+newmtl MT_Corridor_mat1
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.057808 0.057808 0.057808
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\dhsys\\Desktop\\DX113DLOL\\Editor\\Bin\\Mesh\\DeathDoor\\Map\\CorridorEx.fbm\\MT_Corridor-mat1-_MainTex-atlas-0.png
+map_d C:\\Users\\dhsys\\Desktop\\DX113DLOL\\Editor\\Bin\\Mesh\\DeathDoor\\Map\\CorridorEx.fbm\\MT_Corridor-mat1-_MainTex-atlas-0.png
+
+newmtl MT_Corridor_mat2
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\dhsys\\Desktop\\DX113DLOL\\Editor\\Bin\\Mesh\\DeathDoor\\Map\\CorridorEx.fbm\\PaintingsUV_Pots.png
+map_d C:\\Users\\dhsys\\Desktop\\DX113DLOL\\Editor\\Bin\\Mesh\\DeathDoor\\Map\\CorridorEx.fbm\\PaintingsUV_Pots.png
+
+newmtl MT_Corridor_mat3
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\dhsys\\Desktop\\DX113DLOL\\Editor\\Bin\\Mesh\\DeathDoor\\Map\\BossKnight\\BossKnightMapEx.fbm\\grandmaFloorNewTestWhiteIsh.png
+map_d C:\\Users\\dhsys\\Desktop\\DX113DLOL\\Editor\\Bin\\Mesh\\DeathDoor\\Map\\BossKnight\\BossKnightMapEx.fbm\\grandmaFloorNewTestWhiteIsh.png
+
+newmtl MT_Corridor_mat4
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\dhsys\\Desktop\\DX113DLOL\\Editor\\Bin\\Mesh\\DeathDoor\\Map\\CorridorEx.fbm\\grandmaFloorNewTest.png
+map_d C:\\Users\\dhsys\\Desktop\\DX113DLOL\\Editor\\Bin\\Mesh\\DeathDoor\\Map\\CorridorEx.fbm\\grandmaFloorNewTest.png
+
+newmtl MT_Corridor_mat5
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\dhsys\\Desktop\\DX113DLOL\\Editor\\Bin\\Mesh\\DeathDoor\\Map\\CorridorEx.fbm\\GrandmaProbuilderWhite.png
+map_d C:\\Users\\dhsys\\Desktop\\DX113DLOL\\Editor\\Bin\\Mesh\\DeathDoor\\Map\\CorridorEx.fbm\\GrandmaProbuilderWhite.png
+
+newmtl MT_Corridor_mat6
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\dhsys\\Desktop\\DX113DLOL\\Editor\\Bin\\Mesh\\DeathDoor\\Map\\CorridorEx.fbm\\grandmaWallPaperTexture.png
+map_d C:\\Users\\dhsys\\Desktop\\DX113DLOL\\Editor\\Bin\\Mesh\\DeathDoor\\Map\\CorridorEx.fbm\\grandmaWallPaperTexture.png
+
+newmtl Material
+Ns 359.999993
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2

@@ -1,0 +1,3 @@
+Ceramic_Tower_GlobalData
+,AdaptationTime,MiddleGray,LumWhite,BloomThreshold,BloomScale,DOFMax,DOFMin,FogType,FogColorR,FogColorG,FogColorB,FogStart,FogEnd,FogDensity,GlobalLightRotX,GlobalLightRotY,GlobalLightRotZ,GlobalLightColorR,GlobalLightColorG,GlobalLightColorB,AmbientIntensity,RenderSkyBox,ClearColorR,ClearColorG,ClearColorB,SkyBoxTexturePath
+Data,3.000000,1.000000,1.100000,1.000000,1.000000,160.000000,120.000000,0.000000,0.196078,0.196078,0.196078,1000.000000,1000.000000,1.000000,69.400002,180.000000,0.000000,0.196078,0.176471,0.156863,0.400000,FALSE,0.880000,0.880000,0.880000,NONE

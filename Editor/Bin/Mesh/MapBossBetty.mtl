@@ -1,0 +1,343 @@
+<<<<<<< HEAD
+# Blender MTL File: 'None'
+# Material Count: 19
+
+newmtl MT_MapBetty_mat0
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl MT_MapBetty_mat1
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd DeathDoor\\Map\\MapBetty.fbm\\graveyardRocksTexture_greyscale.png
+map_d DeathDoor\\Map\\MapBetty.fbm\\graveyardRocksTexture_greyscale.png
+
+newmtl MT_MapBetty_mat10
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd DeathDoor\\Map\\MapBetty.fbm\\graveyardRocksTexture_greyscale.png
+map_d DeathDoor\\Map\\MapBetty.fbm\\graveyardRocksTexture_greyscale.png
+
+newmtl MT_MapBetty_mat11
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd DeathDoor\\Map\\MapBetty.fbm\\mountainTopTextureUv2_David copy.png
+map_d DeathDoor\\Map\\MapBetty.fbm\\mountainTopTextureUv2_David copy.png
+
+newmtl MT_MapBetty_mat12
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd DeathDoor\\Map\\MapBetty.fbm\\mountainTopTextureUv2_David copy.png
+map_d DeathDoor\\Map\\MapBetty.fbm\\mountainTopTextureUv2_David copy.png
+
+newmtl MT_MapBetty_mat13
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd DeathDoor\\Map\\MapBetty.fbm\\mountainTopTextureUv2_David copy.png
+map_d DeathDoor\\Map\\MapBetty.fbm\\mountainTopTextureUv2_David copy.png
+
+newmtl MT_MapBetty_mat14
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd DeathDoor\\Map\\MapBetty.fbm\\mountainTopTextureUv1 copy.png
+map_d DeathDoor\\Map\\MapBetty.fbm\\mountainTopTextureUv1 copy.png
+
+newmtl MT_MapBetty_mat15
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.157040 0.225319 0.300425
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl MT_MapBetty_mat16
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd DeathDoor\\Map\\MapBetty.fbm\\BettyCaveTexture2_0.png
+map_d DeathDoor\\Map\\MapBetty.fbm\\BettyCaveTexture2_0.png
+
+newmtl MT_MapBetty_mat17
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd DeathDoor\\Map\\MapBetty.fbm\\Stone_SmoothGreenish_Tile.png
+map_d DeathDoor\\Map\\MapBetty.fbm\\Stone_SmoothGreenish_Tile.png
+
+newmtl MT_MapBetty_mat18
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd DeathDoor\\Map\\MapBetty.fbm\\Stone_SmoothGreenish_Tile.png
+map_d DeathDoor\\Map\\MapBetty.fbm\\Stone_SmoothGreenish_Tile.png
+
+newmtl MT_MapBetty_mat2
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd DeathDoor\\Map\\MapBetty.fbm\\graveyardRocksTexture_greyscale.png
+map_d DeathDoor\\Map\\MapBetty.fbm\\graveyardRocksTexture_greyscale.png
+
+newmtl MT_MapBetty_mat3
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd DeathDoor\\Map\\MapBetty.fbm\\graveyardRocksTexture_greyscale.png
+map_d DeathDoor\\Map\\MapBetty.fbm\\graveyardRocksTexture_greyscale.png
+
+newmtl MT_MapBetty_mat4
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd DeathDoor\\Map\\MapBetty.fbm\\graveyardRocksTexture_greyscale.png
+map_d DeathDoor\\Map\\MapBetty.fbm\\graveyardRocksTexture_greyscale.png
+
+newmtl MT_MapBetty_mat5
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd DeathDoor\\Map\\MapBetty.fbm\\BettyCaveTexture1Mark.png
+map_d DeathDoor\\Map\\MapBetty.fbm\\BettyCaveTexture1Mark.png
+
+newmtl MT_MapBetty_mat6
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd DeathDoor\\Map\\MapBetty.fbm\\BettyCaveTexture2_0.png
+map_d DeathDoor\\Map\\MapBetty.fbm\\BettyCaveTexture2_0.png
+
+newmtl MT_MapBetty_mat7
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd DeathDoor\\Map\\MapBetty.fbm\\grandmaArenaUv1Texture.png
+map_d DeathDoor\\Map\\MapBetty.fbm\\grandmaArenaUv1Texture.png
+
+newmtl MT_MapBetty_mat8
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd DeathDoor\\Map\\MapBetty.fbm\\graveyardPropsPart1Texture.png
+map_d DeathDoor\\Map\\MapBetty.fbm\\graveyardPropsPart1Texture.png
+
+newmtl MT_MapBetty_mat9
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.020691 0.023457 0.022961
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd DeathDoor\\Map\\MapBetty.fbm\\MT_MapBetty-mat9-_MainTex-atlas-0.png
+map_d DeathDoor\\Map\\MapBetty.fbm\\MT_MapBetty-mat9-_MainTex-atlas-0.png
+=======
+newmtl MeshBaker_mesh_meshSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MeshBaker_mesh_meshSG1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.56 0.56 0.56
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MeshBaker_mesh_meshSG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.63 0.63 0.63
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MeshBaker_mesh_meshSG3
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.86 0.86 0.86
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MeshBaker_mesh_meshSG4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.66 0.66 0.66
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MeshBaker_mesh_meshSG5
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.72 0.72 0.72
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MeshBaker_mesh_meshSG6
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.58 0.58 0.58
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MeshBaker_mesh_meshSG7
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.48 0.48 0.48
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MeshBaker_mesh_meshSG8
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.77 0.77 0.77
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MeshBaker_mesh_meshSG9
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.79 0.79 0.79
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MeshBaker_mesh_meshSG10
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.69 0.69 0.69
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MeshBaker_mesh_meshSG11
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.77 0.77 0.77
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MeshBaker_mesh_meshSG12
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.67 0.67 0.67
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MeshBaker_mesh_meshSG13
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.74 0.74 0.74
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MeshBaker_mesh_meshSG14
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.76 0.76 0.76
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MeshBaker_mesh_meshSG15
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.67 0.67 0.67
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MeshBaker_mesh_meshSG16
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.66 0.66 0.66
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MeshBaker_mesh_meshSG17
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.62 0.62 0.62
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MeshBaker_mesh_meshSG18
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.50 0.50 0.50
+Tf 1.00 1.00 1.00
+Ni 1.00
+>>>>>>> eefff2c5e431035a896846a199e4eab2eaae7eb5

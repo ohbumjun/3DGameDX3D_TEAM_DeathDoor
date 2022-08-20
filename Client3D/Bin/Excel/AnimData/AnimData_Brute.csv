@@ -1,0 +1,14 @@
+AnimData_Brute,,
+,FrameStart,FrameEnd
+Idle,0,41
+IdleShield,42,83
+Walk,84,125
+Run,126,145
+WalkShield,149,189
+RunShield,191,213
+AttackSwing,214,248
+AttackSwingShield,250,284
+AttackSlam,286,309
+AttackSlamShield,309,334
+Break,336,359
+Throw,359,395

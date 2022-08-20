@@ -1,0 +1,13 @@
+AnimData_Lurker,,
+,FrameStart,FrameEnd
+Run,0,22
+Walkleft,23,46
+Walkright,46,68
+Walkbackwards,69,91
+Idle,92,125
+MeleeAttackprep,125,153
+MeleeAttack,153,180
+Hop,180,200
+HopDodge,201,220
+Death,220,247
+Birth,247,250

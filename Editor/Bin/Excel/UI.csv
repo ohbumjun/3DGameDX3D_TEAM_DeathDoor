@@ -1,0 +1,16 @@
+DeathDoor_UI,,,,,,
+,PosX,PosY,SizeX,SizeY,Path,Zorder
+Arrow_abilty_box,83,608,85,85,UI\hud_abilty_box.png,0
+Fire_abilty_box,37,563,85,85,UI\hud_abilty_box.png,0
+Hook_abilty_box,131,563,85,85,UI\hud_abilty_box.png,0
+Bomb_abilty_box,83,523,85,85,UI\hud_abilty_box.png,0
+ArrowIcon,96,623,50,50,UI\Icon_Arrow.png,1
+FireIcon,55,580,50,50,UI\Icon_Fireball.png,1
+HookIcon,147,582,50,50,UI\Icon_Hook.png,1
+BombIcon,98,545,50,50,UI\Icon_Bomb.png,1
+HPBoxValid1,230,640,26,13,UI\hud_hp_Valid.png,1
+HPBoxValid2,256,640,26,13,UI\hud_hp_Valid.png,1
+HPBoxValid3,282,640,26,13,UI\hud_hp_Valid.png,1
+HPBoxValid4,308,640,26,13,UI\hud_hp_Valid.png,1
+HPBoxValid5,334,640,26,13,UI\hud_hp_Valid.png,1
+HPBoxWrapper,215,633,160,26,UI\HP_Blip_Thin.png,0

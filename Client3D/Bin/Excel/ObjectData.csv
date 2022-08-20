@@ -1,0 +1,14 @@
+ObjectData,,,,,,,,
+,HP,DetectRange,MoveSpeed,Attack,MeleeAttackRange,JumpAttackRange,RotateSpeedPerSec,FlySpeed
+Player,5,0,7,10,0,0,0,0
+Lurker,30,30,4,20,3,0,0,0
+BossKnight,150,20,3,1,10,20,360,0
+CrowBoss,120,20,6,1,8,35,10,65
+BossBetty,120,20,35,1,15,10,180,0
+SporeBoomer,9999999,0,0,1,0,0,0,0
+FirePlant,30,30,0,1,0,0,90,0
+HeadRoller,20,20,10,1,0,0,180,0
+Dodger,80,20,8,1,6.5,0,180,0
+PlagueKnight,50,35,8,1,5,20,145,0
+Bat,30,30,5,20,3,0,0,0
+GruntNormal,30,20,1,20,8,0,0,0

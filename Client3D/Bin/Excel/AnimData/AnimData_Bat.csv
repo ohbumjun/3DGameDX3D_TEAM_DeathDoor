@@ -1,0 +1,6 @@
+AnimData_Bat,,
+,FrameStart,FrameEnd
+Idle,0,20
+Recognize,177,191
+MeleeAttack,65,114
+Run,24,61

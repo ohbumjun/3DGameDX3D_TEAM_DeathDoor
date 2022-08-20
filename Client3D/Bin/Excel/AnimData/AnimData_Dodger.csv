@@ -1,0 +1,17 @@
+AnimData_Dodger,,
+,FrameStart,FrameEnd
+Idle,0,61
+IdleEngaged,62,123
+Dash,124,150
+Run,151,192
+Walk,227,268
+ShortDash,269,280
+Jump,281,289
+JumpFall,290,312
+JumpLand,313,349
+JumpLoop,350,372
+Attack,373,395
+AttackReady,396,431
+AttackEnd,432,443
+Attack2,444,476
+AttackReady2,477,513

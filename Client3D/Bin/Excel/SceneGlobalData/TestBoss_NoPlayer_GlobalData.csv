@@ -1,0 +1,3 @@
+TestBoss_NoPlayer_GlobalData
+,AdaptationTime,MiddleGray,LumWhite,BloomThreshold,BloomScale,DOFMax,DOFMin,FogType,FogColorR,FogColorG,FogColorB,FogStart,FogEnd,FogDensity,GlobalLightRotX,GlobalLightRotY,GlobalLightRotZ,GlobalLightColorR,GlobalLightColorG,GlobalLightColorB,AmbientIntensity,RenderSkyBox,ClearColorR,ClearColorG,ClearColorB
+Data,3.000000,1.000000,1.800000,1.000000,1.000000,280.899994,81.400002,0.000000,0.392157,0.000000,0.000000,116.300003,465.100006,1.000000,49.900002,87.099998,0.000000,0.898039,0.650980,0.780392,1.000000,TRUE,0.000000,0.000000,0.000000

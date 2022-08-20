@@ -1,0 +1,3 @@
+Mushroom_ShootOut_Post_GlobalData,,,,,,,,,,,,,,,,,,,,,,,,,,
+,AdaptationTime,MiddleGray,LumWhite,BloomThreshold,BloomScale,DOFMax,DOFMin,FogType,FogColorR,FogColorG,FogColorB,FogStart,FogEnd,FogDensity,GlobalLightRotX,GlobalLightRotY,GlobalLightRotZ,GlobalLightColorR,GlobalLightColorG,GlobalLightColorB,AmbientIntensity,RenderSkyBox,ClearColorR,ClearColorG,ClearColorB,SkyBoxTexturePath
+Data,3,1,1.1,3,1,160,120,0,0.4,0.686275,0.666667,127.900002,950,1,83.5,119.699997,0,0.392157,0.470588,0.392157,1,FALSE,0.470588,0.470588,0.470588,

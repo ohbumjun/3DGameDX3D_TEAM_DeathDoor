@@ -1,0 +1,3 @@
+BossArena2_GlobalData
+,AdaptationTime,MiddleGray,LumWhite,BloomThreshold,BloomScale,DOFMax,DOFMin,FogType,FogColorR,FogColorG,FogColorB,FogStart,FogEnd,FogDensity,GlobalLightRotX,GlobalLightRotY,GlobalLightRotZ,GlobalLightColorR,GlobalLightColorG,GlobalLightColorB,AmbientIntensity,RenderSkyBox
+Data,3.000000,1.000000,1.800000,1.000000,1.000000,256.799988,86.500000,0.000000,0.392157,0.000000,0.000000,116.300003,465.100006,1.000000,49.900002,87.099998,0.000000,0.976471,0.650980,0.780392,1.000000,TRUE

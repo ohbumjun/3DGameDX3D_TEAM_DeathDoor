@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{9c670454-43b5-4016-bad0-c099172e15d4}</ProjectGuid>
+    <RootNamespace>Client3D</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>../Bin/</OutDir>
+    <IntDir>../BinObj/</IntDir>
+    <TargetName>$(ProjectName)_Debug</TargetName>
+    <IncludePath>../../Engine/Include/;$(IncludePath)</IncludePath>
+    <LibraryPath>../Bin/;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>../Bin/</OutDir>
+    <IntDir>../BinObj/</IntDir>
+    <IncludePath>../../Engine/Include/;$(IncludePath)</IncludePath>
+    <LibraryPath>../Bin/;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>../Bin/</OutDir>
+    <IntDir>../BinObj/</IntDir>
+    <TargetName>$(ProjectName)_Debug</TargetName>
+    <IncludePath>../../Engine/Include/;$(IncludePath)</IncludePath>
+    <LibraryPath>../Bin/;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>../Bin/</OutDir>
+    <IntDir>../BinObj/</IntDir>
+    <IncludePath>../../Engine/Include/;$(IncludePath)</IncludePath>
+    <LibraryPath>../Bin/;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\ArrowCollisionFireCollider.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\ArrowComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\BatDataComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\BossBettyDataComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\CrackedBlockCollider.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\CrowBossDataComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\DodgerDataComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\EyeLaserComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\FirePlantDataComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\GameBehaviorTree.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\GameStateComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\GruntCommonDataComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\HeadRollerDataComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\KnightDataComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\LadderCollider.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\LoLStateComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\LurkerDataComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\MonsterBulletData.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\MonsterDataComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\MonsterNavAgent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\AddFallingFloorCallbackNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\AttackCoolTimeCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BatRecognize.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BatRecognizeEndCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BatRecognizeStartCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyAngryAttackNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyChangeAttackDirNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyChangeDirCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyCloseAttackNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyFarAttackTypeCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyHPStateCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyIdleAnimCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyIdleBeastNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyIntroAnimCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyIntroNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyJumpAttackNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettySpinAttackNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyThrowAttackCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyThrowNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightContinueAttackCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightContinueAttackNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightCutScenePlayCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightCutScenePlayNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightFinalAttackCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightFinalAttackNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightIdleNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightJumpAttackNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightJumpAttackRangeCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightMeleeAttackNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightPlayerEnterZoneCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightSlamEnd.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightWalkNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CancleShootNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ChasePlayerNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CheckDetectRangeNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CheckState.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ClearPathListNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbDown.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbDownContinueCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbDownEnd.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbDownEndCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbDownStart.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbDownStartCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbingDownCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbingUpStartCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbKeyEnableCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbPause.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbUp.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbUpContinueCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbUpEnd.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbUpEndCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbUpStart.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossBypassCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossCutScenePlayCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossCutScenePlayNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossDoneCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossFirstShootCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossFlyNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossJump.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossJumpAttackRangeCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossJumpStartCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossLandingCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossMoveShootSpot.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossPhasePickNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossResetShootState.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossRunNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossShootCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossShootEndCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossShootNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossShootReadyCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossSlide.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossSpinNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossSpitting.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\DeathCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\DeathNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\DodgerDashCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\DodgerDashNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\DodgerFirstAttackNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\DodgerPostAttackNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\DodgerSecondAttackCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\DodgerSecondAttackNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\FindPathNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\GruntCommonAttackNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\GruntCommonHitNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\GruntCommonMoveStartCheckNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\GruntCommonSpawnCheckNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\GruntCommonSpawnNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\GruntCommonTraceNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\GruntCommonWalkNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\HeadRollerRollNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\HeadRollerStunCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\HeadRollerStunNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\HitBackNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\HitCheckNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\HPCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\IdleNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\IsClimbingCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\IsCombatCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\Lockstone3TriggerBoxAction.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\Lockstone3TriggerBoxHitCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\LurkerHop.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\LurkerHopStartCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\LurkerMeleeAttackPrep.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\MeleeAttackNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\MeleeRangeCheckNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\MonsterHitBack.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\MouseLButtonCheckNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\MouseRButtonCheckNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\MouseRButtonUpCheckNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\MoveInputCheckNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\MoveNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\NegateNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\NoInterruptNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\NormalAttack.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\PathFindEnableCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\PathFindExecuteCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\PathListEmptyCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\PlagueKnightShootNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\PlayerEnterTriggerIsEnable.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\PlayerEnterZoneCheckNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\PlayerRoll.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\PostAttackDelayCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ReadyToShoot.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\RollInputCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\RotateAttackDirectionNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\RunNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\ShootNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\SKeyInputCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\SporeBoomerShootNode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\StraightPathCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\UpdateInputQueue.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\Node\WKeyInputCheck.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\ObjectDataComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\PlagueKnightDataComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\PlayerBombComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\PlayerBowComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\PlayerDataComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\PlayerHookComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\PlayerNormalAttackCheckCollider.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\ProjectileComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\SporeBoomerDataComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\TinyCrowComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\TinyCrowDataComponent.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\TriggerBoxData.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Component\TriggerFireLamp.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\DataManager.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\DDFlag.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\DDUtil.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Scene\DDBossSceneMode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Scene\DDInstanceSceneMode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Scene\DDLogoScene.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Scene\DDPuzzleSceneMode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Scene\DDSceneMode.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Scene\EndingScene.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\Thread\DDSceneLoadingThread.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\UI\DDMouseWidgetWindow.h" />
+    <ClInclude Include="..\..\Editor\Include\DeathDoor\UI\UIManager.h" />
+    <ClInclude Include="Client3D.h" />
+    <ClInclude Include="ClientManager3D.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Client3D.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\ArrowCollisionFireCollider.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\ArrowComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\BatDataComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\BossBettyDataComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\CrackedBlockCollider.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\CrowBossDataComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\DodgerDataComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\EyeLaserComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\FirePlantDataComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\GameBehaviorTree.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\GameStateComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\GruntCommonDataComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\HeadRollerDataComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\KnightDataComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\LadderCollider.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\LurkerDataComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\MonsterBulletData.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\MonsterDataComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\MonsterNavAgent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\AddFallingFloorCallbackNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\AttackCoolTimeCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BatRecognize.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BatRecognizeEndCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BatRecognizeStartCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyAngryAttackNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyChangeAttackDirNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyChangeDirCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyCloseAttackNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyFarAttackTypeCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyHPStateCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyIdleAnimCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyIdleBeastNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyIntroAnimCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyIntroNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyJumpAttackNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettySpinAttackNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyThrowAttackCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossBettyThrowNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightContinueAttackCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightContinueAttackNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightCutScenePlayCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightCutScenePlayNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightFinalAttackCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightFinalAttackNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightIdleNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightJumpAttackNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightJumpAttackRangeCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightMeleeAttackNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightPlayerEnterZoneCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightSlamEnd.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\BossKnightWalkNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CancleShootNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ChasePlayerNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CheckDetectRangeNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CheckState.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ClearPathListNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbDown.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbDownContinueCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbDownEnd.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbDownEndCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbDownStart.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbDownStartCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbingDownCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbingUpStartCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbKeyEnableCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbPause.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbUp.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbUpContinueCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbUpEnd.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbUpEndCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ClimbUpStart.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossBypassCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossCutScenePlayCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossCutScenePlayNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossDoneCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossFirstShootCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossFlyNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossJump.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossJumpAttackRangeCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossJumpStartCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossLandingCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossMoveShootSpot.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossPhasePickNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossResetShootState.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossRunNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossShootCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossShootEndCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossShootNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossShootReadyCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossSlide.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossSpinNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\CrowBossSpitting.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\DeathCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\DeathNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\DodgerDashCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\DodgerDashNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\DodgerFirstAttackNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\DodgerPostAttackNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\DodgerSecondAttackCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\DodgerSecondAttackNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\FindPathNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\GruntCommonAttackNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\GruntCommonHitNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\GruntCommonMoveStartCheckNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\GruntCommonSpawnCheckNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\GruntCommonSpawnNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\GruntCommonTraceNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\GruntCommonWalkNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\HeadRollerRollNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\HeadRollerStunCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\HeadRollerStunNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\HitBackNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\HitCheckNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\HPCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\IdleNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\IsClimbingCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\IsCombatCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\Lockstone3TriggerBoxAction.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\Lockstone3TriggerBoxHitCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\LurkerHop.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\LurkerHopStartCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\LurkerMeleeAttackPrep.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\MeleeAttackNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\MeleeRangeCheckNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\MonsterHitBack.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\MouseLButtonCheckNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\MouseRButtonCheckNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\MouseRButtonUpCheckNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\MoveInputCheckNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\MoveNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\NegateNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\NoInterruptNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\NormalAttack.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\PathFindEnableCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\PathFindExecuteCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\PathListEmptyCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\PlagueKnightShootNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\PlayerEnterTriggerIsEnable.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\PlayerEnterZoneCheckNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\PlayerRoll.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\PostAttackDelayCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ReadyToShoot.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\RollInputCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\RotateAttackDirectionNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\RunNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\ShootNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\SKeyInputCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\SporeBoomerShootNode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\StraightPathCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\UpdateInputQueue.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\Node\WKeyInputCheck.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\ObjectDataComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\PlagueKnightDataComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\PlayerBombComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\PlayerBowComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\PlayerDataComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\PlayerHookComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\PlayerNormalAttackCheckCollider.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\ProjectileComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\SporeBoomerDataComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\TinyCrowDataComponent.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\TriggerBoxData.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Component\TriggerFireLamp.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\DataManager.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\DDUtil.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Scene\DDBossSceneMode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Scene\DDInstanceSceneMode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Scene\DDLogoScene.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Scene\DDPuzzleSceneMode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Scene\DDSceneMode.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Scene\EndingScene.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\Thread\DDSceneLoadingThread.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\UI\DDMouseWidgetWindow.cpp" />
+    <ClCompile Include="..\..\Editor\Include\DeathDoor\UI\UIManager.cpp" />
+    <ClCompile Include="ClientManager3D.cpp" />
+    <ClCompile Include="main3D.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\GameEngine\Include\GameEngine.vcxproj">
+      <Project>{6aebf8c5-6304-4b0f-b2a4-3208a366bb25}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

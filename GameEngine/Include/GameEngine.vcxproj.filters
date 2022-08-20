@@ -1119,6 +1119,9 @@
     <ClCompile Include="Resource\Shader\ParticleTempValConstantBuffer.cpp">
       <Filter>02. Resource\02. Shader\03. ConstantBuffer\08. Particle</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject\ThreadPool.cpp">
+      <Filter>10. PoolManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Device.h">
@@ -1900,6 +1903,9 @@
     </ClInclude>
     <ClInclude Include="Resource\Shader\ParticleTempValConstantBuffer.h">
       <Filter>02. Resource\02. Shader\03. ConstantBuffer\08. Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\ThreadPool.h">
+      <Filter>10. PoolManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

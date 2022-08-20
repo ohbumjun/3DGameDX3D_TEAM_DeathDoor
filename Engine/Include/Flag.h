@@ -338,11 +338,12 @@ enum class Fog_Type
 
 enum class Player_Ability
 {
+	None,
 	Arrow,
 	Fire,
 	Hook,
-	Bomb,
-	None
+	Photon,
+	Bomb
 };
 
 enum class ToonShaderType

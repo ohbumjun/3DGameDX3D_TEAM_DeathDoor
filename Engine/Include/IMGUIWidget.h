@@ -68,22 +68,6 @@ public:
 		m_Color.Value.w = a / 255.f;
 	}
 
-	void SetColor(float r, float g, float b, float a)
-	{
-		m_Color.Value.x = r ;
-		m_Color.Value.y = g;
-		m_Color.Value.z = b ;
-		m_Color.Value.w = a;
-	}
-
-	void SetColor(const Vector4& Color)
-	{
-		m_Color.Value.x = Color.x;
-		m_Color.Value.y = Color.y;
-		m_Color.Value.z = Color.z;
-		m_Color.Value.w = Color.w;
-	}
-
 	void SetRender(bool Render)
 	{
 		m_Render = Render;

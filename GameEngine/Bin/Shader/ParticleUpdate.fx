@@ -124,6 +124,95 @@ void ApplyInitSpecialParticleGenerateShape(float RandomAngle, int ThreadID, floa
 		g_ParticleArray[ThreadID.x].LocalPos = RingPos;
 	}
 	break;
+	// 삼각형
+	case 4:
+	{
+		// 먼저, 바닥에 딱 깔려있다는 것을 가정으로 할 것이다.
+
+		// 먼저 Y좌표값 기준 정렬을 한다.
+		float MinX, MaxX, MinY, MaxY, MinZ, MaxZ;
+
+		MinX = g_ParticleStartMin.x < g_ParticleStartMax.x ? g_ParticleStartMin.x : g_ParticleStartMax.x;
+		MaxX = g_ParticleStartMin.x > g_ParticleStartMax.x ? g_ParticleStartMin.x : g_ParticleStartMax.x;
+
+		MinY = g_ParticleStartMin.y < g_ParticleStartMax.y ? g_ParticleStartMin.y : g_ParticleStartMax.y;
+		MaxY = g_ParticleStartMin.y > g_ParticleStartMax.y ? g_ParticleStartMin.y : g_ParticleStartMax.y;
+
+		MinZ = g_ParticleStartMin.z < g_ParticleStartMax.z ? g_ParticleStartMin.z : g_ParticleStartMax.z;
+		MaxZ = g_ParticleStartMin.z > g_ParticleStartMax.z ? g_ParticleStartMin.z : g_ParticleStartMax.z;
+
+		// 오른쪽 상단
+		float3 Point1 = float3(MaxX, MaxY, MaxZ);
+
+		// 왼쪽 중간
+		float3 Point2 = float3(MinX, (MaxY - MinY) * 0.5f + MinY, (MaxZ - MinZ) * 0.5f + MinZ);
+
+		// 오른쪽 하단
+		float3 Point3 = float3(MaxX, MinY, MinZ);
+
+		// 하나의 삼각형은 두개의 삼각형을 분할된다.
+		// 정점 2가 정점 1,3 보다 왼쪽에 있는 경우를 고려할 것이다.
+		
+		// 3개 성분의 기울기를 구한다
+		float A21 = abs((Point1.z - Point2.z) / (Point1.x - Point2.x));
+		float A13 = abs((Point3.z - Point1.z) / (Point3.x - Point1.x));
+		float A31 = abs((Point1.z - Point3.z) / (Point1.x - Point3.x));
+
+		float Rand1 = GetRandomNumber((Rand * 1000.f) % ThreadID);
+		float Rand2 = GetRandomNumber((Rand * 300.f) % ThreadID);
+		float Rand3 = GetRandomNumber((Rand * 720.f) % ThreadID);
+
+		float UpperRandom = GetRandValForParticle(float2(Rand1, Rand2));
+		float DownRandom = GetRandValForParticle(float2(Rand, Rand3));
+
+		// 정점2가 정점1,3 보다 왼쪽에 존재한다는 것은
+		// 선분12 의 기울기가, 선분 13의 기울기보다 작다는 것을 의미한다.
+		// 사실 위에서 임의로 Point 들을 설정해주었기 때문에, 해당 괄호 위치 안쪽으로 들어올 수 밖에 없다.
+		if (A21 < A13)
+		{
+			// 1) 위쪽 삼각형
+			// 정점 1의 Z좌표에서, 정점 2의 Z 좌표까지 반복해서 위쪽 삼각형을 그린다
+			//	for (int z = (int)Point1.z; z >= (int)Point2.z; z--)
+			//	{
+			//		// 해당 루프 안에서 가로로 직선을 그리는 루프를 구성한다.
+			//		for (int x = (int)Point2.x; x <= (int)Point1.x; ++x)
+			//		{
+			//			// x,z 위치에 그린다.
+			//		}
+			//	}
+
+			// 2) 아래쪽 삼각형
+			//	for (int z = (int)Point2.z; z >= (int)Point3.z; z--)
+			//	{
+			//		// 해당 루프 안에서 가로로 직선을 그리는 루프를 구성한다.
+			//		for (int x = (int)Point2.x; x <= (int)Point3.x; ++x)
+			//		{
+			//			// x,z 위치에 그린다.
+			//		}
+			//	}
+
+			g_ParticleArray[ThreadID.x].LocalPos.x = (Point3.x - Point2.x) * DownRandom + Point2.x;
+			g_ParticleArray[ThreadID.x].LocalPos.y = (Point2.y - Point3.y) * DownRandom + Point3.y;
+			g_ParticleArray[ThreadID.x].LocalPos.z = (Point2.z - Point3.z) * DownRandom + Point3.z;
+
+			bool IsUpperRandom = UpperRandom > 0.5f ? true : false;
+			
+			// if (IsUpperRandom)
+			// {
+			// 	g_ParticleArray[ThreadID.x].LocalPos.x = (Point1.x - Point2.x) * UpperRandom + Point2.x;
+			// 	g_ParticleArray[ThreadID.x].LocalPos.y = (Point1.y - Point2.y) * UpperRandom + Point2.y;
+			// 	g_ParticleArray[ThreadID.x].LocalPos.z = (Point1.z - Point2.z) * UpperRandom + Point2.z;
+			// }
+			// else
+			// {
+			// 	g_ParticleArray[ThreadID.x].LocalPos.x = (Point3.x - Point2.x) * DownRandom + Point2.x;
+			// 	g_ParticleArray[ThreadID.x].LocalPos.y = (Point2.y - Point3.y) * DownRandom + Point3.y;
+			// 	g_ParticleArray[ThreadID.x].LocalPos.z = (Point2.z - Point3.z) * DownRandom + Point3.z;
+			// }
+
+		}
+	}
+	break;
 	}
 }
 

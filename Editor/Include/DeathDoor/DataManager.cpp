@@ -23,7 +23,8 @@ CDataManager::~CDataManager()
 void CDataManager::Init()
 {
 	ReadObjectData();
-	LoadSoundData();
+
+	// LoadSoundData();
 }
 
 void CDataManager::ReadObjectData()

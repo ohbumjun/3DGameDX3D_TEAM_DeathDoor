@@ -22,6 +22,13 @@
 #include <process.h>
 #include <utility>
 #include <optional>
+#include <chrono>
+#include <condition_variable>
+#include <cstdio>
+#include <functional>
+#include <future>
+#include <mutex>
+#include <thread>
 
 
 #pragma comment(lib, "d3d11.lib")

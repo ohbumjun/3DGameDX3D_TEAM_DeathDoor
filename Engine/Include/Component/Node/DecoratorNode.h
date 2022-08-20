@@ -21,9 +21,7 @@ protected:
 public:
     void SetChild(CNode* node)
     {
-        if(node)
-            node->SetParent(this);
-
+        node->SetParent(this);
         m_Child = node;
     }
 

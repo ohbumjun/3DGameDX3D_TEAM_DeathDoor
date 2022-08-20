@@ -1,6 +1,8 @@
 #include "EngineUtil.h"
 #include "PathManager.h"
 #include <filesystem>
+#include "Resource/Mesh/AnimationMesh.h"
+
 
 namespace fs = std::filesystem;
 
@@ -903,3 +905,20 @@ float CEngineUtil::CalculateRealTimeSpeedUsingExponentialWithSpeed(float FullTim
 	}
 }
 
+bool CMeshUtil::ConvertFBXLocalFormatFullPathMultiByte(const char* FullPath)
+{
+	CAnimationMesh* Mesh = new CAnimationMesh;
+
+	Mesh->SetName("DummyMeshForConvert");
+
+	if (!Mesh->ConvertFBXLocalFileMultiByte(FullPath))
+	{
+		SAFE_RELEASE(Mesh);
+		return false;
+	}
+
+	// Mesh 변환 이후 Release
+	SAFE_RELEASE(Mesh);
+
+	return true;
+}

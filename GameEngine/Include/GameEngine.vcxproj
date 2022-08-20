@@ -143,6 +143,7 @@
     <ClCompile Include="Resource\Animation\AnimationSequence2D.cpp" />
     <ClCompile Include="Resource\Animation\Skeleton.cpp" />
     <ClCompile Include="Resource\Animation\SkeletonSokcet.cpp" />
+    <ClCompile Include="Resource\DataStructure\PathStringTrie.cpp" />
     <ClCompile Include="Resource\Excel\ExcelData.cpp" />
     <ClCompile Include="Resource\Excel\ExcelManager.cpp" />
     <ClCompile Include="Resource\Font\FontManager.cpp" />
@@ -152,6 +153,7 @@
     <ClCompile Include="Resource\Mesh\FBXLoader.cpp" />
     <ClCompile Include="Resource\Mesh\Mesh.cpp" />
     <ClCompile Include="Resource\Mesh\MeshManager.cpp" />
+    <ClCompile Include="Resource\Mesh\MeshUtil.cpp" />
     <ClCompile Include="Resource\Mesh\NavMesh.cpp" />
     <ClCompile Include="Resource\Mesh\SpriteMesh.cpp" />
     <ClCompile Include="Resource\Mesh\StaticMesh.cpp" />
@@ -400,6 +402,7 @@
     <ClInclude Include="Resource\Animation\AnimationSequence2D.h" />
     <ClInclude Include="Resource\Animation\Skeleton.h" />
     <ClInclude Include="Resource\Animation\SkeletonSokcet.h" />
+    <ClInclude Include="Resource\DataStructure\PathStringTrie.h" />
     <ClInclude Include="Resource\Excel\ExcelData.h" />
     <ClInclude Include="Resource\Excel\ExcelManager.h" />
     <ClInclude Include="Resource\Font\FontManager.h" />
@@ -410,6 +413,7 @@
     <ClInclude Include="Resource\Mesh\fbxsdk.h" />
     <ClInclude Include="Resource\Mesh\Mesh.h" />
     <ClInclude Include="Resource\Mesh\MeshManager.h" />
+    <ClInclude Include="Resource\Mesh\MeshUtil.h" />
     <ClInclude Include="Resource\Mesh\NavMesh.h" />
     <ClInclude Include="Resource\Mesh\SpriteMesh.h" />
     <ClInclude Include="Resource\Mesh\StaticMesh.h" />

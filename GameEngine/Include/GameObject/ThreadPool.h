@@ -28,12 +28,14 @@ public :
 template<typename F, typename ...Args>
 inline std::future<typename std::result_of<F(Args...)>::type> CThreadPool::EnqueueJob(F&& f, Args && ...args)
 {
-	using return_type = std::future<typename std::result_of<F(Args...)>::type>;
+	using return_type = typename std::result_of<F(Args...)>::type;
 
-	// 1. std::bind(std::forward<F>(f), std::forward<Args>(args)...) 을 통해서, 인자를 받는 함수를, 리턴 타입이 return_type 이고, 인자는 args 를 받는 함수 객체를 만들어낸다.
+	// 1. std::bind(std::forward<F>(f), std::forward<Args>(args)...) 을 통해서, 인자를 받는 함수를, 리턴 타입이 return_type 이고, 인자는 args 를 받는 함수 객체를
+	// 즉, std::function<void()> 형태로 만들어서, 차후 인자없이도 호출할 수 있게 세팅한다.
 	// 2. std::packaged_task 을 통해서 promise-future 패턴을 적용한다. 즉, 해당 함수가 리턴하는 값을 future 객체에 set_value 해줄 것이다.
 	// 3. shared_ptr 로 만들어줌으로써, 차후 WorkThread 함수를 통해 해당 Job을 꺼내올 때, 정상적으로 꺼내오게 하고, 더이상 해당 packaged_task 를 사용하는 객체가 없으면 자동으로 소멸되게 한다.
-	auto Job = std::make_shared<std::packaged_task<return_type()>>(std::bind(std::forward<F>(f), std::forward<Args>(args)...));
+	auto Job = std::make_shared<std::packaged_task<return_type()>>
+		(std::bind(std::forward<F>(f), std::forward<Args>(args)...));
 
 	std::future<return_type> Job_Future = Job->get_future();
 

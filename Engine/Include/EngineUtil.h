@@ -88,3 +88,9 @@ public:
 	static float CalculateRealTimeSpeedUsingExponentialWithSpeed(float FullTime, float InitSpeed, float EndSpeed, float CurTime);
 };
 
+
+struct CMeshUtil
+{
+	bool ConvertFBXLocalFormatFullPathMultiByte(const char* FullPath);
+};
+

@@ -1,9 +1,12 @@
 #pragma once
+
 #include "Mesh.h"
+
 class CAnimationMesh :
     public CMesh
 {
 	friend class CMeshManager;
+	friend class CMeshUtil;
 
 protected:
 	CAnimationMesh();

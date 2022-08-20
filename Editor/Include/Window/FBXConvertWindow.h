@@ -2,14 +2,8 @@
 
 #include "IMGUIWindow.h"
 #include "../Thread/FBXConvertThread.h"
-#include "IMGUICheckBox.h"
-#include "IMGUIText.h"
-#include "IMGUISameLine.h"
-#include "IMGUISeperator.h"
-#include "IMGUITextInput.h"
-#include "IMGUIButton.h"
-#include "IMGUIProgressBar.h"
-#include "IMGUIChild.h"
+#include "EngineUtil.h"
+#include "GameObject/ThreadPool.h"
 
 class CFBXConvertWindow :
 	public CIMGUIWindow
@@ -21,24 +15,30 @@ public:
 public:
 	virtual bool Init() override;
 	virtual void Update(float DeltaTime) override;
-
 public:
 	void OnSelectSingleFileMode(int idx, bool Single);
 	void OnClickSetSrcDirButton();
 	void OnClickConvertButton();
+	void OnClearSrcPaths();
 	void OnLoading(const LoadingMessage& msg);
 	void OnLoadFail(const std::string& failedPathName);
 
 private:
-	CFBXConvertThread* m_ConvertThread;
-	CIMGUICheckBox* m_SingleFileModeCheckBox;
-	CIMGUITextInput* m_SrcDirText;
-	CIMGUIButton* m_SetSrcDirButton;
-	CIMGUIButton* m_ConvertButton;
-	CIMGUIProgressBar* m_ProgressBar;
-	CIMGUIChild* m_ConvertLog;
+	std::vector<CMeshUtil*> m_vecMeshUtils;
 
-	char m_SrcFileFullPath[MAX_PATH];
+	CThreadPool* m_ThreadPool;
+	// CFBXConvertThread* m_ConvertThread;
+	class CIMGUICheckBox* m_SingleFileModeCheckBox;
+	class CIMGUITextInput* m_SrcFullDirText;
+	class CIMGUIButton* m_SetSrcDirButton;
+	class CIMGUIButton* m_ClearSrcButton;
+	class CIMGUIButton* m_ConvertButton;
+	class CIMGUIProgressBar* m_ProgressBar;
+	class CIMGUIChild* m_ConvertLog;
+	class CIMGUIChild* m_AddedSrcLog;
+
+	// char m_SrcFileFullPath[MAX_PATH];
+	std::vector<std::string> m_vecSrcFilePaths;
 	char m_SrcDirFullPath[MAX_PATH];
 
 	bool m_SingleFileMode;

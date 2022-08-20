@@ -1,5 +1,6 @@
 #pragma once
 
+#define _SILENCE_ALL_CXX17_DEPRECATION_WARNINGS
 #define	DIRECTINPUT_VERSION	0x0800
 
 #include <Windows.h>

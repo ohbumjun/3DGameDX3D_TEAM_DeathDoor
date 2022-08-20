@@ -1,30 +1,44 @@
 #include "FBXConvertWindow.h"
 #include "../EditorUtil.h"
 #include "Engine.h"
+#include "EngineUtil.h"
 #include "PathManager.h"
+#include "IMGUICheckBox.h"
+#include "IMGUIText.h"
+#include "IMGUISameLine.h"
+#include "IMGUISeperator.h"
+#include "IMGUITextInput.h"
+#include "IMGUIButton.h"
+#include "IMGUIProgressBar.h"
+#include "IMGUIChild.h"
+#include "IMGUISameLine.h"
+#include "Resource/ResourceManager.h"
 
 CFBXConvertWindow::CFBXConvertWindow()	:
-	m_ConvertThread(nullptr),
-	m_SrcDirText(nullptr),
+	// m_ConvertThread(nullptr),
+	m_SrcFullDirText(nullptr),
 	m_SetSrcDirButton(nullptr),
 	m_ConvertButton(nullptr),
 	m_ProgressBar(nullptr),
 	m_ConvertLog(nullptr),
 	m_SrcDirFullPath{}
 {
+	m_ThreadPool = new CThreadPool(1);
 }
 
 CFBXConvertWindow::~CFBXConvertWindow()
 {
-	SAFE_DELETE(m_ConvertThread);
+	// SAFE_DELETE(m_ConvertThread);
+
+	SAFE_DELETE(m_ThreadPool);
 }
 
 bool CFBXConvertWindow::Init()
 {
 	// 변환 스레드
-	m_ConvertThread = new CFBXConvertThread;
-	m_ConvertThread->Init();
-	m_ConvertThread->Start();
+	// m_ConvertThread = new CFBXConvertThread;
+	// m_ConvertThread->Init();
+	// m_ConvertThread->Start();
 
 	// Widget 생성
 	CIMGUIText* text = AddWidget<CIMGUIText>("Text");
@@ -34,39 +48,52 @@ bool CFBXConvertWindow::Init()
 
 	m_SingleFileModeCheckBox = AddWidget<CIMGUICheckBox>("Single File", 0.f, 0.f);
 	m_SingleFileModeCheckBox->AddCheckInfo("Single File");
+	m_SingleFileModeCheckBox->SetCallBackIdx(this, &CFBXConvertWindow::OnSelectSingleFileMode);
 	
 	m_SpecificFileNameInput = AddWidget<CIMGUITextInput>("SpecifieFileName", 300.f);
-
-	m_SrcDirText = AddWidget<CIMGUITextInput>("SrcDirText", 300.f);
-	AddWidget<CIMGUISameLine>("line");
-	m_SetSrcDirButton = AddWidget<CIMGUIButton>("Browse Source", 0.f, 0.f);
-
-	m_ProgressBar = AddWidget<CIMGUIProgressBar>("", 300.f, 0.f);
-	AddWidget<CIMGUISameLine>("line");
-	m_ConvertButton = AddWidget<CIMGUIButton>("Convert", 0.f, 0.f);
-
-	text = AddWidget<CIMGUIText>("Text");
-	text->SetText("Log");
-	m_ConvertLog = AddWidget<CIMGUIChild>("Log", 300.f, 500.f);
-
-	// Widget Initial Value
 	m_SpecificFileNameInput->SetHideName(true);
 	m_SpecificFileNameInput->SetHintText("SpecifieFileName");
 
-	m_SrcDirText->ReadOnly(true);
-	m_SrcDirText->SetHideName(true);
-	m_SrcDirText->SetHintText("Set FBX Folder Or File");
+	m_SrcFullDirText = AddWidget<CIMGUITextInput>("Dir Path", 300.f);
+	m_SrcFullDirText->ReadOnly(true);
+	m_SrcFullDirText->SetHideName(true);
+	m_SrcFullDirText->SetHintText("Set FBX Folder Path Only");
 
+	CIMGUISameLine* Line = AddWidget<CIMGUISameLine>("line");
+
+	m_SetSrcDirButton = AddWidget<CIMGUIButton>("AddSrc", 0.f, 0.f);
+	m_SetSrcDirButton->SetClickCallback(this, &CFBXConvertWindow::OnClickSetSrcDirButton);
+
+	text = AddWidget<CIMGUIText>("Text");
+
+	Line = AddWidget<CIMGUISameLine>("Line");
+	Line->SetOffsetX(315);
+
+	m_ClearSrcButton = AddWidget<CIMGUIButton>("Clear Src", 0.f, 0.f);
+	m_ClearSrcButton->SetClickCallback(this, &CFBXConvertWindow::OnClearSrcPaths);
+
+	text = AddWidget<CIMGUIText>("Text");
+	text->SetText("Target Srces");
+
+	m_AddedSrcLog = AddWidget<CIMGUIChild>("Target Sources Log", 550.f, 150.f);
+	m_AddedSrcLog->EnableBorder(true);
+
+	// Convert
+	m_ProgressBar = AddWidget<CIMGUIProgressBar>("", 450.f, 0.f);
 	m_ProgressBar->SetPercent(0.f);
 
+	AddWidget<CIMGUISameLine>("line");
+
+	m_ConvertButton = AddWidget<CIMGUIButton>("Convert", 0.f, 0.f);
+	m_ConvertButton->SetClickCallback(this, &CFBXConvertWindow::OnClickConvertButton);
+
+	text = AddWidget<CIMGUIText>("Text");
+	text->SetText("Log");
+
+	m_ConvertLog = AddWidget<CIMGUIChild>("Log", 550.f, 250.f);
 	m_ConvertLog->EnableBorder(true);
 
-	// CallBack
-	m_SetSrcDirButton->SetClickCallback(this, &CFBXConvertWindow::OnClickSetSrcDirButton);
-	m_ConvertButton->SetClickCallback(this, &CFBXConvertWindow::OnClickConvertButton);
-	m_SingleFileModeCheckBox->SetCallBackIdx(this, &CFBXConvertWindow::OnSelectSingleFileMode);
-
-	m_ConvertThread->SetLoadingCallBack(this, &CFBXConvertWindow::OnLoading);
+	// m_ConvertThread->SetLoadingCallBack(this, &CFBXConvertWindow::OnLoading);
 
 	return true;
 }
@@ -98,10 +125,17 @@ void CFBXConvertWindow::OnClickSetSrcDirButton()
 
 		if (GetOpenFileName(&OpenFile) != 0)
 		{
-			int Length = WideCharToMultiByte(CP_ACP, 0, FilePath, -1, 0, 0, 0, 0);
-			WideCharToMultiByte(CP_ACP, 0, FilePath, -1, m_SrcFileFullPath, Length, 0, 0);
+			char SrcFileFullPath[MAX_PATH];
 
-			m_SrcDirText->SetText(m_SrcFileFullPath);
+			int Length = WideCharToMultiByte(CP_ACP, 0, FilePath, -1, 0, 0, 0, 0);
+			WideCharToMultiByte(CP_ACP, 0, FilePath, -1, SrcFileFullPath, Length, 0, 0);
+
+			// m_SrcDirText->SetText(m_SrcFileFullPath);
+			m_vecSrcFilePaths.push_back(SrcFileFullPath);
+
+			// Log 에 출력한다.
+			CIMGUIText* Text = m_AddedSrcLog->AddWidget<CIMGUIText>(SrcFileFullPath);
+			Text->SetText(SrcFileFullPath);
 		}
 	}
 	else
@@ -124,7 +158,7 @@ void CFBXConvertWindow::OnClickSetSrcDirButton()
 			WideCharToMultiByte(CP_ACP, 0, Buf, -1, m_SrcDirFullPath, length, nullptr, 0);
 			strcat_s(m_SrcDirFullPath, "\\");
 
-			m_SrcDirText->SetText(m_SrcDirFullPath);
+			m_SrcFullDirText->SetText(m_SrcDirFullPath);
 		}
 	}
 }
@@ -132,13 +166,16 @@ void CFBXConvertWindow::OnClickSetSrcDirButton()
 void CFBXConvertWindow::OnClickConvertButton()
 {
 	// 예외처리
+	// 파일 하나하나 처리
 	if (m_SingleFileMode)
 	{
-		if (strlen(m_SrcFileFullPath) == 0)
+		// if (strlen(m_SrcFileFullPath) == 0)
+		if (m_vecSrcFilePaths.empty())
 		{
 			return;
 		}
 	}
+	// 파일 여러개 처리 
 	else
 	{
 		if (strlen(m_SrcDirFullPath) == 0)
@@ -156,7 +193,26 @@ void CFBXConvertWindow::OnClickConvertButton()
 	// 파일 하나만 변환하는 경우
 	if (m_SingleFileMode)
 	{
-		m_ConvertThread->AddWork(m_SrcFileFullPath);
+		// m_ConvertThread->AddWork(m_SrcFullDirText);
+		size_t SrcSize = m_vecSrcFilePaths.size();
+
+		for (size_t i = 0; i < SrcSize; ++i)
+		{
+			m_vecMeshUtils.push_back(new CMeshUtil);
+
+			auto Function = std::bind(&CResourceManager::ConvertFBXLocalFormatFullPathMultiByte, CResourceManager::GetInst(), m_vecSrcFilePaths[i].c_str());
+			// auto Function = std::bind(&CMeshUtil::ConvertFBXLocalFormatFullPathMultiByte, m_vecMeshUtils[i], m_vecSrcFilePaths[i].c_str());
+			
+			m_ThreadPool->EnqueueJob(Function);
+
+			// m_ThreadPool->EnqueueJobWithMemberFunc(&CResourceManager::ConvertFBXLocalFormatFullPathMultiByte, CResourceManager::GetInst(), SrcFileCopy.c_str());
+		}
+
+		// 한번 Convert 한 Path 정보는 모두 지워줄 것이다
+		// m_vecSrcFilePaths.clear();
+
+		// Widget 정보도 모두 지워준다.
+		m_AddedSrcLog->ClearWidget();
 	}
 	else
 	{
@@ -178,9 +234,14 @@ void CFBXConvertWindow::OnClickConvertButton()
 		for (size_t i = 0; i < Size; ++i)
 		{
 			// 스레드에 수행 요청
-			m_ConvertThread->AddWork(VecFullPath[i]);
+			// m_ConvertThread->AddWork(VecFullPath[i]);
 		}
 	}
+}
+
+void CFBXConvertWindow::OnClearSrcPaths()
+{
+	m_vecPopupWidget.clear();
 }
 
 void CFBXConvertWindow::OnLoading(const LoadingMessage& msg)

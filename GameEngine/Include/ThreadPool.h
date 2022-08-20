@@ -1,19 +1,14 @@
 #pragma once
 
-#include "../GameInfo.h"
-
-struct ThreadInfo
-{
-	std::thread Thread;
-	std::function<void()> m_EndFunction;
-};
+#include "GameInfo.h"
+#include "PoolThread.h"
 
 class CThreadPool
 {
 private :
 	std::size_t m_NumThreads;
 	// std::vector<std::thread> m_Workers;
-	std::vector<ThreadInfo*> m_Workers;
+	std::vector<CPoolThread*> m_Workers;
 	std::queue<std::function<void()>> m_Jobs;
 	std::condition_variable m_CV;
 	std::mutex m_Mtx;
@@ -23,6 +18,7 @@ public :
 	CThreadPool(size_t NumThreads);
 	~CThreadPool();
 public :
+	bool Init();
 	void WorkThread();
 
 	// 1) 비동기적으로 해당 쓰레드를 통해 처리한 값을 얻어올 것이다. 따라서 (promise-future)패턴을 활용한다 -> 이를 일반 함수에 적용하기 위해 packaged_task를 활용
@@ -40,10 +36,13 @@ public :
 	{
 		return m_StopAll;
 	}
-
 	bool IsJobEmpty() const
 	{
 		return m_Jobs.empty();
+	}
+	std::queue<std::function<void()>>& GetQueueJob()
+	{
+		return m_Jobs;
 	}
 };
 

@@ -1122,14 +1122,14 @@
     <ClCompile Include="Resource\Shader\ParticleTempValConstantBuffer.cpp">
       <Filter>02. Resource\02. Shader\03. ConstantBuffer\08. Particle</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject\ThreadPool.cpp">
-      <Filter>10. PoolManager</Filter>
-    </ClCompile>
     <ClCompile Include="Resource\DataStructure\PathStringTrie.cpp">
       <Filter>11. DataStructure</Filter>
     </ClCompile>
-    <ClCompile Include="Resource\Mesh\MeshUtil.cpp">
-      <Filter>02. Resource\01. Mesh</Filter>
+    <ClCompile Include="PoolThread.cpp">
+      <Filter>01. Engine\09. Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadPool.cpp">
+      <Filter>01. Engine\09. Thread</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1913,14 +1913,14 @@
     <ClInclude Include="Resource\Shader\ParticleTempValConstantBuffer.h">
       <Filter>02. Resource\02. Shader\03. ConstantBuffer\08. Particle</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject\ThreadPool.h">
-      <Filter>10. PoolManager</Filter>
-    </ClInclude>
     <ClInclude Include="Resource\DataStructure\PathStringTrie.h">
       <Filter>11. DataStructure</Filter>
     </ClInclude>
-    <ClInclude Include="Resource\Mesh\MeshUtil.h">
-      <Filter>02. Resource\01. Mesh</Filter>
+    <ClInclude Include="PoolThread.h">
+      <Filter>01. Engine\09. Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadPool.h">
+      <Filter>01. Engine\09. Thread</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

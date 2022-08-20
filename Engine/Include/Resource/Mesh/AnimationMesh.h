@@ -6,7 +6,6 @@ class CAnimationMesh :
     public CMesh
 {
 	friend class CMeshManager;
-	friend class CMeshUtil;
 
 protected:
 	CAnimationMesh();

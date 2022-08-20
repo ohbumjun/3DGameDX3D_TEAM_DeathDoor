@@ -35,6 +35,7 @@ void CNavigationThread::Run()
 		if (!m_WorkQueue.empty())
 		{
 			NavWorkData Work = m_WorkQueue.front();
+
 			m_WorkQueue.pop();
 
 			NavResultData	Result;

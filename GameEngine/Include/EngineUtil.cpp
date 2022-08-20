@@ -904,21 +904,3 @@ float CEngineUtil::CalculateRealTimeSpeedUsingExponentialWithSpeed(float FullTim
 		return InitSpeed;
 	}
 }
-
-bool CMeshUtil::ConvertFBXLocalFormatFullPathMultiByte(const char* FullPath)
-{
-	CAnimationMesh* Mesh = new CAnimationMesh;
-
-	Mesh->SetName("DummyMeshForConvert");
-
-	if (!Mesh->ConvertFBXLocalFileMultiByte(FullPath))
-	{
-		SAFE_RELEASE(Mesh);
-		return false;
-	}
-
-	// Mesh 변환 이후 Release
-	SAFE_RELEASE(Mesh);
-
-	return true;
-}

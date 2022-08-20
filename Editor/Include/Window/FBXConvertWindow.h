@@ -24,8 +24,6 @@ public:
 	void OnLoadFail(const std::string& failedPathName);
 
 private:
-	std::vector<CMeshUtil*> m_vecMeshUtils;
-
 	CThreadPool* m_ThreadPool;
 	// CFBXConvertThread* m_ConvertThread;
 	class CIMGUICheckBox* m_SingleFileModeCheckBox;

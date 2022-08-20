@@ -23,7 +23,7 @@ CFBXConvertWindow::CFBXConvertWindow()	:
 	m_ConvertLog(nullptr),
 	m_SrcDirFullPath{}
 {
-	m_ThreadPool = new CThreadPool(1);
+	m_ThreadPool = new CThreadPool(1); 
 }
 
 CFBXConvertWindow::~CFBXConvertWindow()
@@ -198,14 +198,9 @@ void CFBXConvertWindow::OnClickConvertButton()
 
 		for (size_t i = 0; i < SrcSize; ++i)
 		{
-			m_vecMeshUtils.push_back(new CMeshUtil);
-
 			auto Function = std::bind(&CResourceManager::ConvertFBXLocalFormatFullPathMultiByte, CResourceManager::GetInst(), m_vecSrcFilePaths[i].c_str());
-			// auto Function = std::bind(&CMeshUtil::ConvertFBXLocalFormatFullPathMultiByte, m_vecMeshUtils[i], m_vecSrcFilePaths[i].c_str());
 			
-			m_ThreadPool->EnqueueJob(Function);
-
-			// m_ThreadPool->EnqueueJobWithMemberFunc(&CResourceManager::ConvertFBXLocalFormatFullPathMultiByte, CResourceManager::GetInst(), SrcFileCopy.c_str());
+			m_ThreadPool->EnqueueJob(Function, NULL);
 		}
 
 		// 한번 Convert 한 Path 정보는 모두 지워줄 것이다

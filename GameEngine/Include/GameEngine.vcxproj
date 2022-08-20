@@ -31,7 +31,6 @@
     <ClCompile Include="Component\State\State.cpp" />
     <ClCompile Include="Component\State\StateManager.cpp" />
     <ClCompile Include="Component\WaterComponent.cpp" />
-    <ClCompile Include="GameObject\ThreadPool.cpp" />
     <ClCompile Include="IMGUITableElemList.cpp" />
     <ClCompile Include="Component\BehaviorTree.cpp" />
     <ClCompile Include="Component\BillboardComponent.cpp" />
@@ -129,6 +128,7 @@
     <ClCompile Include="ObjectPool.cpp" />
     <ClCompile Include="ObjectPoolManager.cpp" />
     <ClCompile Include="PathManager.cpp" />
+    <ClCompile Include="PoolThread.cpp" />
     <ClCompile Include="Ref.cpp" />
     <ClCompile Include="Render\BlendState.cpp" />
     <ClCompile Include="Render\DepthStencilState.cpp" />
@@ -153,7 +153,6 @@
     <ClCompile Include="Resource\Mesh\FBXLoader.cpp" />
     <ClCompile Include="Resource\Mesh\Mesh.cpp" />
     <ClCompile Include="Resource\Mesh\MeshManager.cpp" />
-    <ClCompile Include="Resource\Mesh\MeshUtil.cpp" />
     <ClCompile Include="Resource\Mesh\NavMesh.cpp" />
     <ClCompile Include="Resource\Mesh\SpriteMesh.cpp" />
     <ClCompile Include="Resource\Mesh\StaticMesh.cpp" />
@@ -256,6 +255,7 @@
     <ClCompile Include="Scene\SceneResource.cpp" />
     <ClCompile Include="Scene\Viewport.cpp" />
     <ClCompile Include="Thread.cpp" />
+    <ClCompile Include="ThreadPool.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Vector2.cpp" />
     <ClCompile Include="Vector3.cpp" />
@@ -281,7 +281,6 @@
     <ClInclude Include="Component\State\State.h" />
     <ClInclude Include="Component\State\StateManager.h" />
     <ClInclude Include="Component\WaterComponent.h" />
-    <ClInclude Include="GameObject\ThreadPool.h" />
     <ClInclude Include="IMGUITableElemList.h" />
     <ClInclude Include="Collision\Collision.h" />
     <ClInclude Include="Collision\CollisionManager.h" />
@@ -388,6 +387,7 @@
     <ClInclude Include="ObjectPoolManager.h" />
     <ClInclude Include="ParticleInfo.h" />
     <ClInclude Include="PathManager.h" />
+    <ClInclude Include="PoolThread.h" />
     <ClInclude Include="Ref.h" />
     <ClInclude Include="Render\BlendState.h" />
     <ClInclude Include="Render\DepthStencilState.h" />
@@ -413,7 +413,6 @@
     <ClInclude Include="Resource\Mesh\fbxsdk.h" />
     <ClInclude Include="Resource\Mesh\Mesh.h" />
     <ClInclude Include="Resource\Mesh\MeshManager.h" />
-    <ClInclude Include="Resource\Mesh\MeshUtil.h" />
     <ClInclude Include="Resource\Mesh\NavMesh.h" />
     <ClInclude Include="Resource\Mesh\SpriteMesh.h" />
     <ClInclude Include="Resource\Mesh\StaticMesh.h" />
@@ -519,6 +518,7 @@
     <ClInclude Include="SharedPtr.h" />
     <ClInclude Include="Sync.h" />
     <ClInclude Include="Thread.h" />
+    <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="ThreadQueue.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Vector2.h" />

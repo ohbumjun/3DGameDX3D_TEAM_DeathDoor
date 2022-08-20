@@ -2,14 +2,22 @@
 
 #include "../GameInfo.h"
 
+struct ThreadInfo
+{
+	std::thread Thread;
+	std::function<void()> m_EndFunction;
+};
+
 class CThreadPool
 {
 private :
 	std::size_t m_NumThreads;
-	std::vector<std::thread> m_Workers;
+	// std::vector<std::thread> m_Workers;
+	std::vector<ThreadInfo*> m_Workers;
 	std::queue<std::function<void()>> m_Jobs;
 	std::condition_variable m_CV;
 	std::mutex m_Mtx;
+
 	bool m_StopAll;
 public : 
 	CThreadPool(size_t NumThreads);
@@ -23,6 +31,20 @@ public :
 	// 3) 완벽한 전달 (복사 방지) 패턴을 적용하기 위해서 Universal_Reference 형태로 인자를 전달하고, 함수 본문 안에서 std::forward 함수를 사용하여 쓰레드가 실행할 함수의 인자로 전달
 	template<typename F, typename ...Args>
 	std::future<typename std::result_of<F(Args...)>::type> EnqueueJob(F&& f, Args&&... args);
+
+	template<typename F, typename ...Args>
+	void SetEndFunction(int Index, F&& f, Args&&... args);
+
+public :
+	bool IsStopAll() const
+	{
+		return m_StopAll;
+	}
+
+	bool IsJobEmpty() const
+	{
+		return m_Jobs.empty();
+	}
 };
 
 template<typename F, typename ...Args>
@@ -49,4 +71,13 @@ inline std::future<typename std::result_of<F(Args...)>::type> CThreadPool::Enque
 	m_CV.notify_one();
 
 	return Job_Future;
+}
+
+template<typename F, typename ...Args>
+inline void CThreadPool::SetEndFunction(int Index, F&& f, Args && ...args)
+{
+	if (Index >= m_NumThreads)
+		assert(false);
+
+	m_Workers[Index]->m_EndFunction = std::bind(f, args);
 }

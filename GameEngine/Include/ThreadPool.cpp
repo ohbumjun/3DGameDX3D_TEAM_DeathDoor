@@ -6,7 +6,9 @@ CThreadPool::CThreadPool(size_t NumThreads) :
 {
 	for (size_t i = 0; i < m_NumThreads; ++i)
 	{
-		m_Workers[i]->Thread = std::thread([this]() {this->WorkThread(); });
+		// m_Workers[i]->m_Thread = std::thread([this]() {this->WorkThread(); });
+		m_Workers.push_back(new CPoolThread(&m_CV, &m_Mtx, this));
+		m_Workers[i]->Init();
 	}
 }
 
@@ -18,8 +20,16 @@ CThreadPool::~CThreadPool()
 
 	for (size_t i = 0; i < m_NumThreads; ++i)
 	{
-		m_Workers[i]->Thread.join();
+		// m_Workers[i]->m_Thread.join();
+		SAFE_DELETE(m_Workers[i]);
 	}
+}
+
+bool CThreadPool::Init()
+{
+
+
+	return true;
 }
 
 void CThreadPool::WorkThread()

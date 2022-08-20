@@ -46,5 +46,8 @@ void CPoolThread::WorkThread()
 		lock.unlock();
 		
 		Job();
+
+		if (m_EndFunction)
+			m_EndFunction();
 	}
 }

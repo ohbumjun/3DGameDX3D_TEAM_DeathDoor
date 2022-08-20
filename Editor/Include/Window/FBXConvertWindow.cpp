@@ -13,6 +13,7 @@
 #include "IMGUIChild.h"
 #include "IMGUISameLine.h"
 #include "Resource/ResourceManager.h"
+#include "ThreadPool.h"
 
 CFBXConvertWindow::CFBXConvertWindow()	:
 	// m_ConvertThread(nullptr),
@@ -21,9 +22,12 @@ CFBXConvertWindow::CFBXConvertWindow()	:
 	m_ConvertButton(nullptr),
 	m_ProgressBar(nullptr),
 	m_ConvertLog(nullptr),
-	m_SrcDirFullPath{}
+	m_SrcDirFullPath{},
+	m_ConvertOngoing(false)
 {
 	m_ThreadPool = new CThreadPool(1); 
+	
+	m_ThreadPool->SetEndFunction(0, std::bind(&CFBXConvertWindow::FileConvertEndFunc, this));
 }
 
 CFBXConvertWindow::~CFBXConvertWindow()
@@ -110,6 +114,12 @@ void CFBXConvertWindow::OnSelectSingleFileMode(int idx, bool Single)
 
 void CFBXConvertWindow::OnClickSetSrcDirButton()
 {
+	if (m_ConvertOngoing)
+	{
+		MessageBox(nullptr, TEXT("진행중"), TEXT("진행중"), MB_OK);
+		return;
+	}
+
 	if (m_SingleFileMode)
 	{
 		TCHAR   FilePath[MAX_PATH] = {};
@@ -161,10 +171,17 @@ void CFBXConvertWindow::OnClickSetSrcDirButton()
 			m_SrcFullDirText->SetText(m_SrcDirFullPath);
 		}
 	}
+
 }
 
 void CFBXConvertWindow::OnClickConvertButton()
 {
+	if (m_ConvertOngoing)
+	{
+		MessageBox(nullptr, TEXT("진행중"), TEXT("진행중"), MB_OK);
+		return;
+	}
+
 	// 예외처리
 	// 파일 하나하나 처리
 	if (m_SingleFileMode)
@@ -211,6 +228,9 @@ void CFBXConvertWindow::OnClickConvertButton()
 	}
 	else
 	{
+		if (m_vecSrcFilePaths.empty() == false)
+			assert(false);
+
 		// 폴더 내의 모든 FBX 파일의 경로를 받아옴
 		std::vector<std::string> VecFullPath;
 		CEditorUtil::GetAllFileFullPathInDir(m_SrcDirFullPath, VecFullPath, ".fbx");
@@ -219,23 +239,34 @@ void CFBXConvertWindow::OnClickConvertButton()
 		if (!m_SpecificFileNameInput->Empty())
 		{
 			std::vector<std::string> SpecificVecFullPath;
-			CEditorUtil::FilterSpecificNameIncludedFilePath(VecFullPath, SpecificVecFullPath, m_SpecificFileNameInput->GetTextUTF8());
-
-			VecFullPath = SpecificVecFullPath;
+			
+			CEditorUtil::FilterSpecificNameIncludedFilePath(VecFullPath, m_vecSrcFilePaths, m_SpecificFileNameInput->GetTextUTF8());
+			// CEditorUtil::FilterSpecificNameIncludedFilePath(SpecificVecFullPath, m_vecSrcFilePaths, m_SpecificFileNameInput->GetTextUTF8());
 		}
 
-		size_t Size = VecFullPath.size();
+		size_t Size = m_vecSrcFilePaths.size();
 
 		for (size_t i = 0; i < Size; ++i)
 		{
-			// 스레드에 수행 요청
-			// m_ConvertThread->AddWork(VecFullPath[i]);
+			auto Function = std::bind(&CResourceManager::ConvertFBXLocalFormatFullPathMultiByte, CResourceManager::GetInst(), m_vecSrcFilePaths[i].c_str());
+
+			m_ThreadPool->EnqueueJob(Function, NULL);
 		}
 	}
+
+	m_CurNumConvertComplete = 0;
+	m_MaxNumConvertComplete = (LONG)m_vecSrcFilePaths.size();
 }
 
 void CFBXConvertWindow::OnClearSrcPaths()
 {
+	if (m_ConvertOngoing)
+	{
+		MessageBox(nullptr, TEXT("진행중"), TEXT("진행중"), MB_OK);
+		return;
+	}
+
+	m_vecSrcFilePaths.clear();
 	m_vecPopupWidget.clear();
 }
 
@@ -248,6 +279,7 @@ void CFBXConvertWindow::OnLoading(const LoadingMessage& msg)
 
 	if (msg.Complete)
 	{
+		m_ConvertOngoing = false;
 		Text  = m_ConvertLog->AddWidget<CIMGUIText>("OK");
 		Text->SetText("Complete!");
 		MessageBox(nullptr, TEXT("변환 완료"), TEXT("완료"), MB_OK);
@@ -272,4 +304,32 @@ void CFBXConvertWindow::OnLoadFail(const std::string& failedPathName)
 	CIMGUIText* Text  = m_ConvertLog->AddWidget<CIMGUIText>("OK");
 	std::string LogMsg = "Failed To Load " + failedPathName;
 	Text->SetText(LogMsg.c_str());
+}
+
+void CFBXConvertWindow::FileConvertEndFunc()
+{
+	InterlockedIncrement(&m_CurNumConvertComplete);
+
+	float CurPercent = (float)m_CurNumConvertComplete / (float)m_MaxNumConvertComplete;
+	m_ProgressBar->SetPercent(CurPercent);
+
+	CIMGUIText* Text = m_ConvertLog->AddWidget<CIMGUIText>("Text");
+
+	std::string LoadingMsg = "Convert Success : " + CEditorUtil::FilterFileName(m_vecSrcFilePaths[m_CurNumConvertComplete - 1]);
+
+	Text->SetText(LoadingMsg.c_str());
+
+	if (m_CurNumConvertComplete > m_MaxNumConvertComplete)
+		assert(false);
+
+	if (m_CurNumConvertComplete == m_MaxNumConvertComplete)
+	{
+		m_ConvertOngoing = false;
+
+		m_vecSrcFilePaths.clear();
+
+		Text = m_ConvertLog->AddWidget<CIMGUIText>("OK");
+		Text->SetText("Complete!");
+		MessageBox(nullptr, TEXT("변환 완료"), TEXT("완료"), MB_OK);
+	}
 }

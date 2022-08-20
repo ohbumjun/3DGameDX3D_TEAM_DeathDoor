@@ -3,7 +3,6 @@
 #include "IMGUIWindow.h"
 #include "../Thread/FBXConvertThread.h"
 #include "EngineUtil.h"
-#include "GameObject/ThreadPool.h"
 
 class CFBXConvertWindow :
 	public CIMGUIWindow
@@ -22,18 +21,23 @@ public:
 	void OnClearSrcPaths();
 	void OnLoading(const LoadingMessage& msg);
 	void OnLoadFail(const std::string& failedPathName);
-
+	void FileConvertEndFunc();
 private:
-	CThreadPool* m_ThreadPool;
+	class CThreadPool* m_ThreadPool;
 	// CFBXConvertThread* m_ConvertThread;
 	class CIMGUICheckBox* m_SingleFileModeCheckBox;
 	class CIMGUITextInput* m_SrcFullDirText;
 	class CIMGUIButton* m_SetSrcDirButton;
 	class CIMGUIButton* m_ClearSrcButton;
-	class CIMGUIButton* m_ConvertButton;
-	class CIMGUIProgressBar* m_ProgressBar;
-	class CIMGUIChild* m_ConvertLog;
 	class CIMGUIChild* m_AddedSrcLog;
+private :
+	class CIMGUIProgressBar* m_ProgressBar;
+	class CIMGUIButton* m_ConvertButton;
+	class CIMGUIChild* m_ConvertLog;
+private :
+	LONG m_CurNumConvertComplete;
+	LONG m_MaxNumConvertComplete;
+	bool m_ConvertOngoing;
 
 	// char m_SrcFileFullPath[MAX_PATH];
 	std::vector<std::string> m_vecSrcFilePaths;

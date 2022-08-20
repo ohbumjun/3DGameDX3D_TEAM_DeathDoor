@@ -19,7 +19,7 @@ public :
 	~CThreadPool();
 public :
 	bool Init();
-	void WorkThread();
+	// void WorkThread();
 
 	// 1) 비동기적으로 해당 쓰레드를 통해 처리한 값을 얻어올 것이다. 따라서 (promise-future)패턴을 활용한다 -> 이를 일반 함수에 적용하기 위해 packaged_task를 활용
 	// 2) std::result_of<F(Args...)>::type 을 통해서 해당 함수의 리턴타입을 얻어올 수 있고, ::type 의 경우, 의존 타입이므로
@@ -40,6 +40,10 @@ public :
 	{
 		return m_Jobs.empty();
 	}
+	const std::vector<CPoolThread*>& GetWorkers() const
+	{
+		return m_Workers;
+	}
 	std::queue<std::function<void()>>& GetQueueJob()
 	{
 		return m_Jobs;
@@ -47,7 +51,8 @@ public :
 };
 
 template<typename F, typename ...Args>
-inline std::future<typename std::result_of<F(Args...)>::type> CThreadPool::EnqueueJob(F&& f, Args && ...args)
+inline std::future<typename std::result_of<F(Args...)>::type> CThreadPool::EnqueueJob(
+	F&& f, Args && ...args)
 {
 	using return_type = typename std::result_of<F(Args...)>::type;
 

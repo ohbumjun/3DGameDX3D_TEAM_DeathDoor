@@ -19,14 +19,15 @@ public :
 	~CThreadPool();
 public :
 	bool Init();
-	void WorkThread();
+	// void WorkThread();
 
 	// 1) 비동기적으로 해당 쓰레드를 통해 처리한 값을 얻어올 것이다. 따라서 (promise-future)패턴을 활용한다 -> 이를 일반 함수에 적용하기 위해 packaged_task를 활용
 	// 2) std::result_of<F(Args...)>::type 을 통해서 해당 함수의 리턴타입을 얻어올 수 있고, ::type 의 경우, 의존 타입이므로
 	//  해당 값이 타입임을 컴파일러에게 알려주기 위해서 typename 키워드를 작성한다.
 	// 3) 완벽한 전달 (복사 방지) 패턴을 적용하기 위해서 Universal_Reference 형태로 인자를 전달하고, 함수 본문 안에서 std::forward 함수를 사용하여 쓰레드가 실행할 함수의 인자로 전달
 	template<typename F, typename ...Args>
-	std::future<typename std::result_of<F(Args...)>::type> EnqueueJob(F&& f, Args&&... args);
+	std::future<typename std::result_of<F(Args...)>::type> EnqueueJob(
+		F&& f, Args&&... args);
 
 	template<typename F, typename ...Args>
 	void SetEndFunction(int Index, F&& f, Args&&... args);
@@ -40,6 +41,10 @@ public :
 	{
 		return m_Jobs.empty();
 	}
+	const std::vector<CPoolThread*>& GetWorkers() const
+	{
+		return m_Workers;
+	}
 	std::queue<std::function<void()>>& GetQueueJob()
 	{
 		return m_Jobs;
@@ -47,7 +52,8 @@ public :
 };
 
 template<typename F, typename ...Args>
-inline std::future<typename std::result_of<F(Args...)>::type> CThreadPool::EnqueueJob(F&& f, Args && ...args)
+inline std::future<typename std::result_of<F(Args...)>::type> CThreadPool::EnqueueJob(
+	F&& f, Args && ...args)
 {
 	using return_type = typename std::result_of<F(Args...)>::type;
 
@@ -78,5 +84,6 @@ inline void CThreadPool::SetEndFunction(int Index, F&& f, Args && ...args)
 	if (Index >= m_NumThreads)
 		assert(false);
 
-	m_Workers[Index]->m_EndFunction = std::bind(f, args);
+	m_Workers[Index]->m_EndFunction = std::bind(
+		std::forward<F>(f), std::forward<Args>(args)...);
 }

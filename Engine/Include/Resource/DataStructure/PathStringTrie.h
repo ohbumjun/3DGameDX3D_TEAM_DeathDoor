@@ -6,8 +6,8 @@
 
 class CPathStringTrie
 {
-	// 소문자알파벳(26) + 대문자알파벳(26) + 숫자(10) + '\'(1) + ':' (1) + '_'(1) + '.'(1)
-	static const int PathStringTrieSize = 66;
+	// 소문자알파벳(26) + 대문자알파벳(26) + 숫자(10) + '\'(1) + ':' (1) + '_'(1) + '.'(1) + '-'(1)
+	static const int PathStringTrieSize = 67;
 public :
 	CPathStringTrie();
 	~CPathStringTrie();

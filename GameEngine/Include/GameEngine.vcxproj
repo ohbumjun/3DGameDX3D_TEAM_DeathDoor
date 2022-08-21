@@ -254,6 +254,7 @@
     <ClCompile Include="Scene\SceneMode.cpp" />
     <ClCompile Include="Scene\SceneResource.cpp" />
     <ClCompile Include="Scene\Viewport.cpp" />
+    <ClCompile Include="SemaPhoreSync.cpp" />
     <ClCompile Include="Thread.cpp" />
     <ClCompile Include="ThreadPool.cpp" />
     <ClCompile Include="Timer.cpp" />
@@ -515,6 +516,7 @@
     <ClInclude Include="Scene\SceneMode.h" />
     <ClInclude Include="Scene\SceneResource.h" />
     <ClInclude Include="Scene\Viewport.h" />
+    <ClInclude Include="SemaPhoreSync.h" />
     <ClInclude Include="SharedPtr.h" />
     <ClInclude Include="Sync.h" />
     <ClInclude Include="Thread.h" />

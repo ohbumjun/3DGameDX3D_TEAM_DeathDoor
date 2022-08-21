@@ -1131,6 +1131,9 @@
     <ClCompile Include="ThreadPool.cpp">
       <Filter>01. Engine\09. Thread</Filter>
     </ClCompile>
+    <ClCompile Include="SemaPhoreSync.cpp">
+      <Filter>01. Engine\09. Thread</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Device.h">
@@ -1920,6 +1923,9 @@
       <Filter>01. Engine\09. Thread</Filter>
     </ClInclude>
     <ClInclude Include="ThreadPool.h">
+      <Filter>01. Engine\09. Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="SemaPhoreSync.h">
       <Filter>01. Engine\09. Thread</Filter>
     </ClInclude>
   </ItemGroup>

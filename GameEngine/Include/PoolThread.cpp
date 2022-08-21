@@ -29,12 +29,9 @@ void CPoolThread::WorkThread()
 		// 아래의 조건이 만족하지 않는다면
 		// 1) lock 을 unlock 하고
 		// 2) 누가 깨우지 않을 때까지 잠들어있게 된다.
-		bool IsJobEmpty = m_OwnerPool->IsJobEmpty();
-		bool IsStopAll = m_OwnerPool->IsStopAll();
-
 		(*m_CV).wait(lock, [this]() {return !this->m_OwnerPool->IsJobEmpty() || m_OwnerPool->IsStopAll(); });
 
-		if (IsStopAll && IsJobEmpty)
+		if (m_OwnerPool->IsStopAll() && m_OwnerPool->IsJobEmpty())
 			return;
 		
 		// std::function<void()> Job = m_Jobs.front();

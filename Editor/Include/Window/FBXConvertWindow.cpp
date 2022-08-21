@@ -14,6 +14,7 @@
 #include "IMGUISameLine.h"
 #include "Resource/ResourceManager.h"
 #include "ThreadPool.h"
+#include "Resource/DataStructure/PathStringTrie.h"
 
 CFBXConvertWindow::CFBXConvertWindow()	:
 	// m_ConvertThread(nullptr),
@@ -25,16 +26,20 @@ CFBXConvertWindow::CFBXConvertWindow()	:
 	m_SrcDirFullPath{},
 	m_ConvertOngoing(false)
 {
+	// ThreadPool
 	m_ThreadPool = new CThreadPool(1); 
-	
 	m_ThreadPool->SetEndFunction(0, std::bind(&CFBXConvertWindow::FileConvertEndFunc, this));
+
+	// Trie 
+	m_PathStringTrie = new CPathStringTrie;
 }
 
 CFBXConvertWindow::~CFBXConvertWindow()
 {
 	// SAFE_DELETE(m_ConvertThread);
-
 	SAFE_DELETE(m_ThreadPool);
+
+	SAFE_DELETE(m_PathStringTrie);
 }
 
 bool CFBXConvertWindow::Init()
@@ -120,6 +125,9 @@ void CFBXConvertWindow::OnClickSetSrcDirButton()
 		return;
 	}
 
+	if (!m_PathStringTrie)
+		m_PathStringTrie = new CPathStringTrie;
+
 	if (m_SingleFileMode)
 	{
 		TCHAR   FilePath[MAX_PATH] = {};
@@ -139,6 +147,15 @@ void CFBXConvertWindow::OnClickSetSrcDirButton()
 
 			int Length = WideCharToMultiByte(CP_ACP, 0, FilePath, -1, 0, 0, 0, 0);
 			WideCharToMultiByte(CP_ACP, 0, FilePath, -1, SrcFileFullPath, Length, 0, 0);
+
+			// Trie 자료구조를 통해 해당 문자열이 이미 존재하는지 확인한다.
+			if (m_PathStringTrie->find(SrcFileFullPath))
+			{
+				MessageBox(nullptr, TEXT("이미 존재"), TEXT("이미 존재"), MB_OK);
+				return;
+			}
+
+			m_PathStringTrie->insert(SrcFileFullPath);
 
 			// m_SrcDirText->SetText(m_SrcFileFullPath);
 			m_vecSrcFilePaths.push_back(SrcFileFullPath);
@@ -327,6 +344,9 @@ void CFBXConvertWindow::FileConvertEndFunc()
 		m_ConvertOngoing = false;
 
 		m_vecSrcFilePaths.clear();
+
+		// Trie 자료구조도 모두 지워준다.
+		SAFE_DELETE(m_PathStringTrie);
 
 		Text = m_ConvertLog->AddWidget<CIMGUIText>("OK");
 		Text->SetText("Complete!");

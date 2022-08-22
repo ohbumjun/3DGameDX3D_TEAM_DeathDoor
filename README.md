@@ -4,5 +4,10 @@
 <br/>
 <br/>
 
+## Role
+- Animation, Animation Editor
+- Particle System
+- Dungeon Map, Boss Map
+
 ## Link
 [Team DeathDoor](https://www.youtube.com/watch?v=Qz96T7xYueg&list=PLkaVDtEaS2nbXnXoqC8kQaQpuEsi1z5MH&index=79)
